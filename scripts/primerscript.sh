@@ -22,7 +22,7 @@ aws ec2 modify-vpc-attribute \
 SUB_ID=$(aws ec2 create-subnet \
     --vpc-id "$VPC_ID" \
     --cidr-block 172.16.0.0/20 \
-    --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=sbn-davidreinon}]' \
+    --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=sbn-script-davidreinon}]' \
     --query 'Subnet.SubnetId' \
     --output text)
 
@@ -30,7 +30,7 @@ echo "Subred creada con ID: $SUB_ID"
 
 # 4. Crear el Security Group y guardar su ID en una variable (SG_ID)
 SG_ID=$(aws ec2 create-security-group \
-    --group-name "sg-ssh-davidreinon" \
+    --group-name "sec-ssh-davidreinon" \
     --description "Grupo de seguridad para permitir acceso SSH" \
     --vpc-id "$VPC_ID" \
     --query 'GroupId' \
