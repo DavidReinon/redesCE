@@ -7,7 +7,7 @@ ec2 = boto3.client('ec2')
 
 def crear_vpc():
     # Crear la VPC
-    vpc = ec2.create_vpc(CidrBlock='193.168.0.0/16')
+    vpc = ec2.create_vpc(CidrBlock='172.16.0.0/16')
     vpc_id = vpc['Vpc']['VpcId']
     print(f"VPC creada con ID: {vpc_id}")
 
@@ -52,7 +52,7 @@ def crear_subred(vpc_id):
     # Crear la subred
     subred = ec2.create_subnet(
         VpcId=vpc_id,
-        CidrBlock='193.168.5.0/24',
+        CidrBlock='172.16.0.0/20',
         TagSpecifications=[
             {
                 'ResourceType': 'subnet',
