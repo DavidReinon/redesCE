@@ -1,4 +1,5 @@
 #!/bin/bash
+# David Reinón García
 # Elimina las VPC con la etiqueta tipo=prueba y todos sus recursos dependientes
 
 VPC_IDS=$(aws ec2 describe-vpcs \
